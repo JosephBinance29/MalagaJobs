@@ -1,0 +1,56 @@
+body {
+    background-color: #f9f3f0; /* Color de fondo celeste */
+    background-image: url("img/waves.png");
+    background-size: cover; /* Cubre toda la pantalla */
+    animation: waves 10s infinite linear; /* Animación de ondas */
+}
+
+@keyframes waves {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+/* Estilo del carrusel */
+.carousel-item {
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.carousel-item video,
+.carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+/* Menú desplegable */
+.navbar {
+    z-index: 1000; /* Para que esté por encima del carrusel */
+}
+
+/* Logo del canal de WhatsApp */
+.logo-whatsapp {
+    height: 100px; /* Ajusta el tamaño según sea necesario */
+    width: auto;
+    border-radius: 5px; /* Opcional: para bordes redondeados */
+}
+
+/* Espaciado para el contenido */
+section {
+    padding-top: 60px; /* Ajuste para el menú fijo */
+}
+
+/* Panel de WhatsApp */
+.alert-success {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
