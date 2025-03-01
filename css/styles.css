@@ -1,56 +1,178 @@
-body {
-    background-color: #f9f3f0; /* Color de fondo celeste */
-    background-image: url("img/waves.png");
-    background-size: cover; /* Cubre toda la pantalla */
-    animation: waves 10s infinite linear; /* Animación de ondas */
-}
-
-@keyframes waves {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 100% 0;
-    }
-}
-
-/* Estilo del carrusel */
-.carousel-item {
-    max-height: 500px;
-    overflow: hidden;
-}
-
-.carousel-item video,
-.carousel-item img {
-    width: 100%;
-    height: auto;
-}
-
+/* Estilos del carrusel */
 .carousel-caption {
     background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    padding: 20px;
+    bottom: 20%;
 }
 
-/* Menú desplegable */
+.carousel-caption h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.carousel-caption {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* Gradiente oscuro */
+}
+
+/* Estilo de la barra de navegación */
 .navbar {
-    z-index: 1000; /* Para que esté por encima del carrusel */
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo del canal de WhatsApp */
+.navbar-brand img {
+    height: auto;
+    max-width: 100%;
+}
+
+.nav-link {
+    color: #333333 !important;
+    font-weight: 500;
+    margin: 0 10px;
+}
+
+.nav-link:hover {
+    color: #28a745 !important;
+}
+
 .logo-whatsapp {
-    height: 100px; /* Ajusta el tamaño según sea necesario */
+    height: 50px;
     width: auto;
-    border-radius: 5px; /* Opcional: para bordes redondeados */
+    border-radius: 5px;
 }
 
 /* Espaciado para el contenido */
 section {
-    padding-top: 60px; /* Ajuste para el menú fijo */
+    padding-top: 60px;
 }
 
-/* Panel de WhatsApp */
+/* Estilo de la sección de WhatsApp */
 .alert-success {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.alert-success h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.alert-success .btn {
+    background-color: #218838;
+    border-color: #1e7e34;
+    color: white;
+}
+
+.alert-success .btn:hover {
+    background-color: #1c7430;
+    border-color: #19692c;
+}
+
+/* Estilo del buscador */
+#buscador {
+    margin-top: 40px;
+    max-width: 300px;
+    width: 100%;
+    margin: 40px auto 0;
+    margin-bottom: 40px; /* Añadido para separar el buscador de las ofertas */
+}
+
+#buscador .input-group {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#buscador .form-control {
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #ced4da;
+}
+
+#buscador .btn {
+    border-radius: 0 4px 4px 0;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+#buscador .btn:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Estilo de las tarjetas de ofertas */
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333333;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #666666;
+}
+
+.btn-verde {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.btn-verde:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    color: #333333;
+}
+
+footer a {
+    color: #333333;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #28a745;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
