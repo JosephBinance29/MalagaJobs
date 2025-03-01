@@ -46,7 +46,7 @@
 }
 
 .nav-link:hover {
-    color: #28a745 !important;
+    color: #00615f !important;
 }
 
 .logo-whatsapp {
@@ -62,8 +62,8 @@ section {
 
 /* Estilo de la sección de WhatsApp */
 .alert-success {
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: #00615f;
+    border-color: #00615f;
     color: white;
     border-radius: 10px;
     padding: 20px;
@@ -75,14 +75,14 @@ section {
 }
 
 .alert-success .btn {
-    background-color: #218838;
-    border-color: #1e7e34;
+    background-color: #00615f;
+    border-color: #00615f;
     color: white;
 }
 
 .alert-success .btn:hover {
-    background-color: #1c7430;
-    border-color: #19692c;
+    background-color: #00615f;
+    border-color: #00615f;
 }
 
 /* Estilo del buscador */
@@ -105,13 +105,13 @@ section {
 
 #buscador .btn {
     border-radius: 0 4px 4px 0;
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: #00615f;
+    border-color: #00615f;
 }
 
 #buscador .btn:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
+    background-color: #00615f;
+    border-color: #00615f;
 }
 
 /* Estilo de las tarjetas de ofertas */
@@ -149,8 +149,8 @@ section {
 }
 
 .btn-verde:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
+    background-color: #00615f;
+    border-color: #00615f;
 }
 
 /* Footer */
@@ -173,7 +173,7 @@ footer a {
 }
 
 footer a:hover {
-    color: #28a745;
+    color: #00615f;
 }
 
 .fade-in {
