@@ -155,15 +155,15 @@ section {
 /* Estilos para la sección de servicios */
 #servicios {
     padding: 60px 0;
-    background-color: #28a745; /* Verde */
-    color: white;
+    background-color: #f8f9fa; /* Fondo claro */
 }
 
 #servicios .card {
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 #servicios .card:hover {
@@ -179,11 +179,20 @@ section {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 15px;
+    color: #00615f; /* Verde oscuro */
 }
 
 #servicios .card-text {
     font-size: 1rem;
     color: #555;
+}
+
+#servicios .servicio-detalle {
+    margin-top: 20px;
+}
+
+#servicios .servicio-detalle img {
+    border-radius: 10px;
 }
 
 /* Footer */

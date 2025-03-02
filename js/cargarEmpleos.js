@@ -118,3 +118,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const tarjetas = document.querySelectorAll(".servicio-card");
+
+    tarjetas.forEach(tarjeta => {
+        tarjeta.addEventListener("click", function () {
+            const detalle = this.querySelector(".servicio-detalle");
+            detalle.style.display = detalle.style.display === "none" ? "block" : "none";
+        });
+    });
+});
