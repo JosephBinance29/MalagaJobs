@@ -152,6 +152,40 @@ section {
     border-color: #00615f;
 }
 
+/* Estilos para la sección de servicios */
+#servicios {
+    padding: 60px 0;
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+#servicios .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#servicios .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#servicios .card-body {
+    padding: 30px;
+}
+
+#servicios .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#servicios .card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
 /* Footer */
 footer {
     background-color: #f8f9fa;
