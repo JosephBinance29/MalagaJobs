@@ -59,11 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Habilitar o deshabilitar botones de paginación
                 actualizarBotonesPaginacion(data.count);
 
-                // Desplazar la página hacia la sección de ofertas
-                window.scrollTo({
-                    top: ofertasSection.offsetTop - 100, // Ajuste para el menú fijo
-                    behavior: "smooth" // Desplazamiento suave
-                });
+                // Scroll automático solo al hacer clic en "Siguiente" o "Anterior"
+                if (paginaActual !== 1) {
+                    window.scrollTo({
+                        top: ofertasSection.offsetTop - 100, // Ajuste para el menú fijo
+                        behavior: "smooth" // Desplazamiento suave
+                    });
+                }
             })
             .catch(error => {
                 // Mostrar mensaje de error
