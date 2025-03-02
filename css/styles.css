@@ -7,9 +7,8 @@
 }
 
 .carousel-caption h1 {
-    font-size: Cooper Black, Arial, sans-serif;
-    font-weight: bold;
-    color: #ffffff;
+    font-family: 'Cooper Black', serif;
+    font-size: 6rem; /* Ajusta el tamaño según sea necesario */
 }
 
 .carousel-caption p {
