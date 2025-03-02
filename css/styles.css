@@ -155,7 +155,8 @@ section {
 /* Estilos para la sección de servicios */
 #servicios {
     padding: 60px 0;
-    background-color: #00615f; /* Fondo */
+    background-color: #00615f; /* Verde oscuro */
+    color: white;
 }
 
 #servicios .card {
@@ -164,6 +165,9 @@ section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    background-color: white;
+    color: #00615f;
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
 }
 
 #servicios .card:hover {
@@ -179,20 +183,44 @@ section {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 15px;
+}
+
+/* Estilos para las secciones de detalles */
+section[id^="marketing"],
+section[id^="extranjeria"],
+section[id^="estudia"],
+section[id^="trabajo"],
+section[id^="cv"] {
+    padding: 60px 0;
+    background-color: #f8f9fa; /* Fondo claro */
     color: #00615f; /* Verde oscuro */
 }
 
-#servicios .card-text {
-    font-size: 1rem;
-    color: #00615f;
-}
-
-#servicios .servicio-detalle {
-    margin-top: 20px;
-}
-
-#servicios .servicio-detalle img {
+section[id^="marketing"] img,
+section[id^="extranjeria"] img,
+section[id^="estudia"] img,
+section[id^="trabajo"] img,
+section[id^="cv"] img {
     border-radius: 10px;
+    margin: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Estilos para el botón verde */
+.btn-verde {
+    background-color: #00615f; /* Verde oscuro */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 25px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.btn-verde:hover {
+    background-color: #004d4b; /* Verde más oscuro al pasar el mouse */
+    color: white;
 }
 
 /* Footer */

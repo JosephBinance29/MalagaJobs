@@ -121,11 +121,77 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const tarjetas = document.querySelectorAll(".servicio-card");
+    const detallesServicio = document.getElementById("detalles-servicio");
+    const contenidoDetalle = document.getElementById("contenido-detalle");
+    const cerrarDetalle = document.getElementById("cerrar-detalle");
+    const anteriorDetalle = document.getElementById("anterior-detalle");
+    const siguienteDetalle = document.getElementById("siguiente-detalle");
 
+    let servicioActual = null;
+    let indiceActual = 0;
+
+    // Datos de los servicios (descripción y fotos)
+    const servicios = {
+        marketing: {
+            descripcion: "Ofrecemos estrategias de marketing digital personalizadas para ayudar a las pequeñas empresas a crecer.",
+            fotos: ["img/marketing1.jpg", "img/marketing2.jpg", "img/marketing3.jpg"]
+        },
+        extranjeria: {
+            descripcion: "Asesoramiento y gestión de trámites de extranjería para facilitar tu estancia en España.",
+            fotos: ["img/extranjeria1.jpg", "img/extranjeria2.jpg", "img/extranjeria3.jpg"]
+        },
+        estudia: {
+            descripcion: "Te ayudamos a encontrar programas de estudio y gestionar tu matrícula en instituciones españolas.",
+            fotos: ["img/estudia1.jpg", "img/estudia2.jpg", "img/estudia3.jpg"]
+        },
+        trabajo: {
+            descripcion: "Te ayudamos a encontrar oportunidades laborales y prepararte para entrevistas.",
+            fotos: ["img/trabajo1.jpg", "img/trabajo2.jpg", "img/trabajo3.jpg"]
+        },
+        cv: {
+            descripcion: "Creamos CV profesionales y personalizados para destacar tu perfil ante los reclutadores.",
+            fotos: ["img/cv1.jpg", "img/cv2.jpg", "img/cv3.jpg"]
+        }
+    };
+
+    // Abrir detalles del servicio
     tarjetas.forEach(tarjeta => {
         tarjeta.addEventListener("click", function () {
-            const detalle = this.querySelector(".servicio-detalle");
-            detalle.style.display = detalle.style.display === "none" ? "block" : "none";
+            servicioActual = this.getAttribute("data-servicio");
+            indiceActual = 0;
+            mostrarDetalle();
+            detallesServicio.classList.remove("d-none");
+            document.getElementById("tarjetas-servicios").classList.add("d-none");
         });
     });
+
+    // Cerrar detalles del servicio
+    cerrarDetalle.addEventListener("click", function () {
+        detallesServicio.classList.add("d-none");
+        document.getElementById("tarjetas-servicios").classList.remove("d-none");
+    });
+
+    // Navegación del carrusel
+    anteriorDetalle.addEventListener("click", function () {
+        if (indiceActual > 0) {
+            indiceActual--;
+            mostrarDetalle();
+        }
+    });
+
+    siguienteDetalle.addEventListener("click", function () {
+        if (indiceActual < servicios[servicioActual].fotos.length - 1) {
+            indiceActual++;
+            mostrarDetalle();
+        }
+    });
+
+    // Mostrar detalles del servicio
+    function mostrarDetalle() {
+        const servicio = servicios[servicioActual];
+        contenidoDetalle.innerHTML = `
+            <p>${servicio.descripcion}</p>
+            <img src="${servicio.fotos[indiceActual]}" alt="Foto ${indiceActual + 1}" class="img-fluid">
+        `;
+    }
 });
