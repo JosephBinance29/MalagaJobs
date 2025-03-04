@@ -1,6 +1,13 @@
+/* Estilos generales */
+body {
+    background-color: #f8f9fa; /* Gris claro suave */
+    font-family: 'Varela Round', sans-serif;
+    color: #333333;
+}
+
 /* Estilos del carrusel */
 .carousel-caption {
-    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
     border-radius: 10px;
     padding: 20px;
     bottom: 20%;
@@ -8,22 +15,24 @@
 
 .carousel-caption h1 {
     font-family: 'Cooper Black', serif;
-    font-size: 6rem; /* Ajusta el tamaño según sea necesario */
+    font-size: 6rem;
 }
 
 .carousel-caption p {
-    font-size: Cooper Black, Arial, sans-serif;
+    font-size: 2rem;
     color: #ffffff;
-}
-
-.carousel-caption {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* Gradiente oscuro */
 }
 
 /* Ajuste del carrusel para móviles */
 @media (max-width: 767.98px) {
     .carousel {
-        margin-top: 56px; /* Altura de la barra de menú en móviles */
+        margin-top: 56px;
+    }
+    .carousel-caption h1 {
+        font-size: 3rem;
+    }
+    .carousel-caption p {
+        font-size: 1.2rem;
     }
 }
 
@@ -39,13 +48,13 @@
 }
 
 .nav-link {
-    color: #333333 !important;
+    color: #333333;
     font-weight: 500;
     margin: 0 10px;
 }
 
 .nav-link:hover {
-    color: #00615f !important;
+    color: #00615f;
 }
 
 .logo-whatsapp {
@@ -57,6 +66,31 @@
 /* Espaciado para el contenido */
 section {
     padding-top: 60px;
+}
+
+/* Estilos para la tira interactiva */
+.tira-interactiva {
+    background-color: #00615f;
+    color: white;
+    padding: 10px;
+    font-size: 1.5rem;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.scroll-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll 20s linear infinite; /* Aumentamos la duración de 10s a 20s */
+}
+
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
 /* Estilo de la sección de WhatsApp */
@@ -80,8 +114,7 @@ section {
 }
 
 .alert-success .btn:hover {
-    background-color: #00615f;
-    border-color: #00615f;
+    background-color: #004d4b;
 }
 
 /* Estilo del buscador */
@@ -90,7 +123,7 @@ section {
     max-width: 300px;
     width: 100%;
     margin: 40px auto 0;
-    margin-bottom: 40px; /* Añadido para separar el buscador de las ofertas */
+    margin-bottom: 40px;
 }
 
 #buscador .input-group {
@@ -109,47 +142,46 @@ section {
 }
 
 #buscador .btn:hover {
-    background-color: #00615f;
-    border-color: #00615f;
+    background-color: #004d4b;
 }
 
 /* Estilo de las tarjetas de ofertas */
-.card {
+#lista-ofertas .card {
+    background-color: #e8f5e9; /* Verde muy claro */
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
+#lista-ofertas .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.card-body {
+#lista-ofertas .card-body {
     padding: 25px;
 }
 
-.card-title {
+#lista-ofertas .card-title {
     font-size: 1.25rem;
     font-weight: bold;
     color: #333333;
 }
 
-.card-text {
+#lista-ofertas .card-text {
     font-size: 1rem;
     color: #666666;
 }
 
-.btn-verde {
-    background-color: #00615f;
+#lista-ofertas .btn-outline-verde {
     border-color: #00615f;
-    color: white;
+    color: #00615f;
 }
 
-.btn-verde:hover {
+#lista-ofertas .btn-outline-verde:hover {
     background-color: #00615f;
-    border-color: #00615f;
+    color: white;
 }
 
 /* Estilos para la sección de servicios */
@@ -160,14 +192,14 @@ section {
 }
 
 #servicios .card {
+    background-color: #e8f5e9; /* Verde muy claro */
     border: none;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    background-color: white;
     color: #00615f;
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    text-decoration: none;
 }
 
 #servicios .card:hover {
@@ -186,41 +218,23 @@ section {
 }
 
 /* Estilos para las secciones de detalles */
-section[id^="marketing"],
-section[id^="extranjeria"],
-section[id^="estudia"],
-section[id^="trabajo"],
-section[id^="cv"] {
-    padding: 60px 0;
-    background-color: #f8f9fa; /* Fondo claro */
-    color: #00615f; /* Verde oscuro */
+.servicio-detalle {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-section[id^="marketing"] img,
-section[id^="extranjeria"] img,
-section[id^="estudia"] img,
-section[id^="trabajo"] img,
-section[id^="cv"] img {
+.servicio-detalle h2 {
+    color: #00615f;
+    margin-bottom: 20px;
+}
+
+.servicio-detalle img {
     border-radius: 10px;
-    margin: 10px;
+    margin-bottom: 10px;
     max-width: 100%;
     height: auto;
-}
-
-
-/* Estilos para el botón verde */
-.btn-verde {
-    background-color: #00615f; /* Verde oscuro */
-    color: white; /* Texto blanco */
-    border: none; /* Sin borde */
-    padding: 10px 20px; /* Espaciado interno */
-    border-radius: 25px; /* Bordes redondeados */
-    transition: background-color 0.3s ease; /* Transición suave */
-}
-
-.btn-verde:hover {
-    background-color: #004d4b; /* Verde más oscuro al pasar el mouse */
-    color: white;
 }
 
 /* Footer */
@@ -249,7 +263,125 @@ footer a:hover {
 .fade-in {
     animation: fadeIn 1s ease-in-out;
 }
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+/* Estilos para el efecto de volteo */
+.flip-card {
+    background-color: transparent;
+    perspective: 1000px; /* Efecto de perspectiva 3D */
+    width: 100%;
+    height: 300px; /* Ajusta la altura según el tamaño de tus fotos */
+    margin-bottom: 20px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg); /* Voltea la tarjeta al pasar el mouse */
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta la parte trasera de la tarjeta */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.flip-card-front {
+    background-color: #e8f5e9; /* Verde muy claro */
+    color: #333333;
+}
+
+.flip-card-back {
+    background-color: #00615f; /* Verde oscuro */
+    color: white;
+    transform: rotateY(180deg); /* Gira la parte trasera 180 grados */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.flip-card-back h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.flip-card-back p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Estilos para la sección ¿Quiénes Somos? */
+#quienes-somos {
+    background-color: #f8f9fa; /* Fondo gris claro */
+    padding: 60px 0;
+}
+
+#quienes-somos h2 {
+    color: #00615f; /* Verde oscuro para el título */
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#quienes-somos p {
+    color: #004d4b; /* Verde más oscuro para la descripción */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Gris de Bootstrap */
+    border-color: #6c757d; /* Gris de Bootstrap */
+    color: white; /* Texto blanco */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Gris más oscuro al pasar el mouse */
+    border-color: #545b62; /* Gris más oscuro al pasar el mouse */
+}
+
+/* Estilos para el botón flotante de WhatsApp */
+.whatsapp-float {
+    position: fixed; /* Fija el botón en la pantalla */
+    bottom: 20px; /* Distancia desde la parte inferior */
+    right: 20px; /* Distancia desde la parte derecha */
+    background-color: #25d366; /* Verde de WhatsApp */
+    color: white; /* Color del ícono */
+    width: 60px; /* Ancho del botón */
+    height: 60px; /* Alto del botón */
+    border-radius: 50%; /* Forma circular */
+    text-align: center; /* Centra el ícono */
+    font-size: 30px; /* Tamaño del ícono */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e; /* Cambia el color al pasar el mouse */
 }

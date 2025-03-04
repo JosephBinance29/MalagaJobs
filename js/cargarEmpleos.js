@@ -7,36 +7,34 @@ document.addEventListener("DOMContentLoaded", function () {
     const siguienteBtn = document.getElementById("siguiente");
     const anteriorBtn = document.getElementById("anterior");
 
-    let paginaActual = 1; // Página actual de resultados
-    let ubicacionActual = ""; // Ubicación actual para filtrar
+    let paginaActual = 1;
+    let ubicacionActual = "";
 
     // Función para cargar ofertas
     function cargarOfertas(ubicacion = "", pagina = 1) {
-        // Mostrar mensaje de carga
-        ofertasSection.innerHTML = "<p>Cargando ofertas...</p>";
+        ofertasSection.innerHTML = `
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+        `;
 
-        // Construir la URL de la API
         const API_URL = `https://api.adzuna.com/v1/api/jobs/es/search/${pagina}?app_id=${APP_ID}&app_key=${APP_KEY}&results_per_page=10&where=${ubicacion}`;
 
-        // Hacer la solicitud a la API
         fetch(API_URL)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Error al cargar los empleos');
+                    throw new Error(`Error ${response.status}: ${response.statusText}`);
                 }
                 return response.json();
             })
             .then(data => {
-                // Limpiar el contenedor de ofertas
                 ofertasSection.innerHTML = "";
 
-                // Verificar si hay resultados
                 if (data.results.length === 0) {
                     ofertasSection.innerHTML = "<p>No hay ofertas disponibles en esta ubicación.</p>";
                     return;
                 }
 
-                // Mostrar cada empleo en dos columnas
                 data.results.forEach((empleo, index) => {
                     const card = `
                         <div class="col-md-6 mb-4">
@@ -47,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                         <strong>Empresa:</strong> ${empleo.company.display_name}<br>
                                         <strong>Ubicación:</strong> ${empleo.location.display_name}<br>
                                         <strong>Salario:</strong> ${empleo.salary_min ? `€${empleo.salary_min}` : 'No especificado'}<br>
-                                        <a href="${empleo.redirect_url}" target="_blank" class="btn btn-verde">Ver más</a>
+                                        <a href="${empleo.redirect_url}" target="_blank" class="btn btn-outline-verde">Ver más</a>
                                     </p>
                                 </div>
                             </div>
@@ -56,20 +54,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     ofertasSection.innerHTML += card;
                 });
 
-                // Habilitar o deshabilitar botones de paginación
                 actualizarBotonesPaginacion(data.count);
 
-                // Scroll automático solo al hacer clic en "Siguiente" o "Anterior"
                 if (paginaActual !== 1) {
                     window.scrollTo({
-                        top: ofertasSection.offsetTop - 100, // Ajuste para el menú fijo
-                        behavior: "smooth" // Desplazamiento suave
+                        top: ofertasSection.offsetTop - 100,
+                        behavior: "smooth"
                     });
                 }
             })
             .catch(error => {
-                // Mostrar mensaje de error
-                ofertasSection.innerHTML = "<p>Error al cargar las ofertas. Inténtalo de nuevo más tarde.</p>";
+                ofertasSection.innerHTML = `<p>Error: ${error.message}</p>`;
                 console.error('Error:', error);
             });
     }
@@ -77,30 +72,29 @@ document.addEventListener("DOMContentLoaded", function () {
     // Función para actualizar los botones de paginación
     function actualizarBotonesPaginacion(totalOfertas) {
         if (siguienteBtn && anteriorBtn) {
-            // Deshabilitar "Anterior" si estamos en la primera página
             anteriorBtn.disabled = paginaActual === 1;
-
-            // Deshabilitar "Siguiente" si no hay más ofertas
             siguienteBtn.disabled = paginaActual * 10 >= totalOfertas;
         }
     }
 
-    // Cargar ofertas al inicio (sin filtro)
+    // Cargar ofertas al inicio
     cargarOfertas();
 
-    // Filtrar ofertas al hacer clic en el botón "Filtrar"
-    filtrarBtn.addEventListener("click", () => {
-        const ubicacion = filtroInput.value.trim();
-        if (ubicacion === "") {
-            alert("Por favor, ingresa una ubicación.");
-            return;
-        }
-        ubicacionActual = ubicacion;
-        paginaActual = 1; // Reiniciar a la primera página
-        cargarOfertas(ubicacion, paginaActual);
-    });
+    // Filtrar ofertas
+    if (filtrarBtn) {
+        filtrarBtn.addEventListener("click", () => {
+            const ubicacion = filtroInput.value.trim();
+            if (ubicacion === "") {
+                alert("Por favor, ingresa una ubicación.");
+                return;
+            }
+            ubicacionActual = ubicacion;
+            paginaActual = 1;
+            cargarOfertas(ubicacion, paginaActual);
+        });
+    }
 
-    // Cargar la siguiente página de ofertas
+    // Cargar la siguiente página
     if (siguienteBtn) {
         siguienteBtn.addEventListener("click", () => {
             paginaActual++;
@@ -108,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Cargar la página anterior de ofertas
+    // Cargar la página anterior
     if (anteriorBtn) {
         anteriorBtn.addEventListener("click", () => {
             if (paginaActual > 1) {
@@ -117,81 +111,33 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    const tarjetas = document.querySelectorAll(".servicio-card");
-    const detallesServicio = document.getElementById("detalles-servicio");
-    const contenidoDetalle = document.getElementById("contenido-detalle");
-    const cerrarDetalle = document.getElementById("cerrar-detalle");
-    const anteriorDetalle = document.getElementById("anterior-detalle");
-    const siguienteDetalle = document.getElementById("siguiente-detalle");
+    // Código de servicios
+const tarjetas = document.querySelectorAll(".servicio-card");
 
-    let servicioActual = null;
-    let indiceActual = 0;
+// Abrir detalles del servicio
+tarjetas.forEach(tarjeta => {
+    tarjeta.addEventListener("click", function () {
+        const servicio = this.getAttribute("data-servicio");
+        const seccionDetalle = document.getElementById(`${servicio}-detalle`);
 
-    // Datos de los servicios (descripción y fotos)
-    const servicios = {
-        marketing: {
-            descripcion: "Ofrecemos estrategias de marketing digital personalizadas para ayudar a las pequeñas empresas a crecer.",
-            fotos: ["img/marketing1.jpg", "img/marketing2.jpg", "img/marketing3.jpg"]
-        },
-        extranjeria: {
-            descripcion: "Asesoramiento y gestión de trámites de extranjería para facilitar tu estancia en España.",
-            fotos: ["img/extranjeria1.jpg", "img/extranjeria2.jpg", "img/extranjeria3.jpg"]
-        },
-        estudia: {
-            descripcion: "Te ayudamos a encontrar programas de estudio y gestionar tu matrícula en instituciones españolas.",
-            fotos: ["img/estudia1.jpg", "img/estudia2.jpg", "img/estudia3.jpg"]
-        },
-        trabajo: {
-            descripcion: "Te ayudamos a encontrar oportunidades laborales y prepararte para entrevistas.",
-            fotos: ["img/trabajo1.jpg", "img/trabajo2.jpg", "img/trabajo3.jpg"]
-        },
-        cv: {
-            descripcion: "Creamos CV profesionales y personalizados para destacar tu perfil ante los reclutadores.",
-            fotos: ["img/cv1.jpg", "img/cv2.jpg", "img/cv3.jpg"]
-        }
-    };
-
-    // Abrir detalles del servicio
-    tarjetas.forEach(tarjeta => {
-        tarjeta.addEventListener("click", function () {
-            servicioActual = this.getAttribute("data-servicio");
-            indiceActual = 0;
-            mostrarDetalle();
-            detallesServicio.classList.remove("d-none");
-            document.getElementById("tarjetas-servicios").classList.add("d-none");
+        // Ocultar todas las secciones de detalles
+        document.querySelectorAll(".servicio-detalle").forEach(seccion => {
+            seccion.classList.add("d-none");
         });
-    });
 
-    // Cerrar detalles del servicio
-    cerrarDetalle.addEventListener("click", function () {
-        detallesServicio.classList.add("d-none");
-        document.getElementById("tarjetas-servicios").classList.remove("d-none");
-    });
+        // Mostrar la sección de detalles correspondiente
+        if (seccionDetalle) {
+            seccionDetalle.classList.remove("d-none");
 
-    // Navegación del carrusel
-    anteriorDetalle.addEventListener("click", function () {
-        if (indiceActual > 0) {
-            indiceActual--;
-            mostrarDetalle();
+            // Ajustar el desplazamiento para que el título sea visible
+            const offset = 100; // Ajusta este valor según la altura de tu barra de navegación
+            const seccionPosicion = seccionDetalle.offsetTop - offset;
+
+            window.scrollTo({
+                top: seccionPosicion,
+                behavior: "smooth"
+            });
         }
     });
-
-    siguienteDetalle.addEventListener("click", function () {
-        if (indiceActual < servicios[servicioActual].fotos.length - 1) {
-            indiceActual++;
-            mostrarDetalle();
-        }
-    });
-
-    // Mostrar detalles del servicio
-    function mostrarDetalle() {
-        const servicio = servicios[servicioActual];
-        contenidoDetalle.innerHTML = `
-            <p>${servicio.descripcion}</p>
-            <img src="${servicio.fotos[indiceActual]}" alt="Foto ${indiceActual + 1}" class="img-fluid">
-        `;
-    }
 });
