@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Cargar ofertas al inicio
     cargarOfertas();
 
-    // Filtrar ofertas
+    // Filtrar ofertas al hacer clic en el botón "Filtrar"
     if (filtrarBtn) {
         filtrarBtn.addEventListener("click", () => {
             const ubicacion = filtroInput.value.trim();
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Cargar la siguiente página
+    // Cargar la siguiente página de ofertas
     if (siguienteBtn) {
         siguienteBtn.addEventListener("click", () => {
             paginaActual++;
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Cargar la página anterior
+    // Cargar la página anterior de ofertas
     if (anteriorBtn) {
         anteriorBtn.addEventListener("click", () => {
             if (paginaActual > 1) {
@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+});
 
     // Código de servicios
 const tarjetas = document.querySelectorAll(".servicio-card");
