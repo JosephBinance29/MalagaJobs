@@ -45,16 +45,30 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-});
 
-// Animación de la barra de navegación al hacer scroll
-window.addEventListener("scroll", () => {
-    const navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
+    // Cerrar la sección de detalles al hacer clic en "Volver a servicios"
+    document.querySelectorAll(".btn-secondary").forEach(boton => {
+        boton.addEventListener("click", function (event) {
+            event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+
+            // Ocultar todas las secciones de detalles
+            document.querySelectorAll(".servicio-detalle").forEach(seccion => {
+                seccion.classList.add("d-none");
+            });
+
+            // Desplazarse suavemente a la sección de servicios
+            const seccionServicios = document.getElementById("servicios");
+            if (seccionServicios) {
+                const offset = 100; // Ajusta este valor según la altura de tu barra de navegación
+                const seccionPosicion = seccionServicios.offsetTop - offset;
+
+                window.scrollTo({
+                    top: seccionPosicion,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
 });
 
 // Animación de la barra de navegación al hacer scroll

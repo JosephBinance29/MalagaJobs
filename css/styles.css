@@ -368,3 +368,25 @@ footer a:hover {
 #buscador .btn:hover {
     background-color: #004d4b;
 }
+
+/* Estilos para la sección de detalles del servicio */
+.servicio-detalle {
+    padding: 40px 20px; /* Añadimos un padding para separar el contenido de los bordes */
+    margin: 0 auto; /* Centramos la sección */
+    max-width: 1200px; /* Limitamos el ancho máximo */
+}
+
+.servicio-detalle h2 {
+    margin-bottom: 20px; /* Separamos el título del contenido */
+    text-align: center; /* Centramos el título */
+    color: var(--color-primario); /* Color del título */
+    font-family: var(--fuente-titulos); /* Fuente del título */
+}
+
+.servicio-detalle .btn-secondary {
+    margin-top: 20px; /* Separamos el botón del contenido */
+    display: block; /* Hacemos que el botón ocupe toda la línea */
+    width: fit-content; /* Ajustamos el ancho al contenido */
+    margin-left: auto; /* Centramos el botón */
+    margin-right: auto;
+}

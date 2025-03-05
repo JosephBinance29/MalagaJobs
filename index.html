@@ -29,7 +29,7 @@
                 <a class="nav-link btn btn-outline-primary mx-2" href="#inicio">Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link btn btn-outline-success mx-2" href="#ofertas">Ofertas</a>
+                <a class="nav-link btn btn-outline-success mx-2" href="#ofertas">Ofertas de Empleo</a>
             </li>
         </ul>
 
@@ -44,7 +44,7 @@
                 <a class="nav-link btn btn-outline-warning mx-2" href="#servicios">Servicios</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link btn btn-outline-danger mx-2" href="#whatsapp">WhatsApp</a>
+                <a class="nav-link btn btn-outline-danger mx-2" href="#whatsapp">Canal de WhatsApp</a>
             </li>
         </ul>
     </div>
@@ -57,7 +57,7 @@
                 <!-- Video -->
                 <div class="carousel-item active">
                     <video class="d-block w-100" autoplay loop muted>
-                        <source src="img/videomalaga1.mov" type="video/mp4">
+                        <source src="img/video_de_malaga_HolaJob.mp4" type="video/mp4">
                         Tu navegador no soporta videos.
                     </video>
                 </div>
@@ -300,30 +300,98 @@
             </div>
 
             <!-- Detalles de Creación de CV -->
-            <div id="cv-detalle" class="servicio-detalle d-none">
-                <h2>Creación de CV</h2>
-                <p>Un currículum bien estructurado puede marcar la diferencia en tu búsqueda de empleo. 
-                    Te ayudamos a diseñar un CV profesional y optimizado, resaltando tus habilidades, 
-                    experiencia y logros de manera clara y atractiva. Adaptamos tu currículum al formato
-                     europeo o a un diseño más creativo según tu sector. Además, te asesoramos sobre cómo
-                      personalizarlo para cada oferta de empleo, destacando los puntos clave que buscan los reclutadores. 
-                      También te brindamos consejos sobre cómo mejorar tu presentación y perfil profesional. 
-                      ¡Haz que tu CV sea tu mejor carta de presentación y consigue más oportunidades laborales!</p>
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="img/cv1.jpg" alt="Creacion de Curriculum" class="img-fluid">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="img/cv2.jpg" alt="Curriculum 2025" class="img-fluid">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="img/cv3.jpg" alt="Fotmato de Curriculo europeo" class="img-fluid">
-                    </div>
-                </div>
-                <!-- Botón "Volver a servicios" más sutil -->
-                <a href="#servicios" class="btn btn-secondary mt-3">Volver a servicios</a>
-            </div>
+<div id="cv-detalle" class="servicio-detalle d-none">
+    <h2>Creación de CV</h2>
+    <p>Un currículum bien estructurado puede marcar la diferencia en tu búsqueda de empleo. 
+        Te ayudamos a diseñar un CV profesional y optimizado, resaltando tus habilidades, 
+        experiencia y logros de manera clara y atractiva. Adaptamos tu currículum al formato
+         europeo o a un diseño más creativo según tu sector. Además, te asesoramos sobre cómo
+          personalizarlo para cada oferta de empleo, destacando los puntos clave que buscan los reclutadores. 
+          También te brindamos consejos sobre cómo mejorar tu presentación y perfil profesional. 
+          ¡Haz que tu CV sea tu mejor carta de presentación y consigue más oportunidades laborales!</p>
+    
+        <!-- Imágenes y botón "Volver a servicios" -->
+    <div class="row">
+        <div class="col-md-4">
+            <img src="img/cv1.jpg" alt="Creacion de Curriculum" class="img-fluid">
         </div>
+        <div class="col-md-4">
+            <img src="img/cv2.jpg" alt="Curriculum 2025" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="img/cv3.jpg" alt="Fotmato de Curriculo europeo" class="img-fluid">
+        </div>
+    </div>
+    <div class="container my-4">
+        <h3 class="text-center mb-4" style="color: var(--color-primario); font-family: var(--fuente-titulos);">
+            Solicita tu CV personalizado
+        </h3>
+        <p class="text-center mb-4" style="font-size: 1.2rem; color: var(--color-primario);">
+            Precio: <strong>0,99€</strong>
+        </p>
+        <form name="solicitud-cv" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="formulario-cv">
+            <!-- Campo oculto para Netlify -->
+            <input type="hidden" name="form-name" value="solicitud-cv">
+            <p class="d-none">
+                <label>No llenes este campo si eres humano: <input name="bot-field"></label>
+            </p>
+    
+            <!-- Campos del formulario -->
+            <div class="mb-3">
+                <label for="nombre" class="form-label" style="color: var(--color-primario); font-weight: bold;">
+                    Nombre completo:
+                </label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required
+                       style="border-radius: 10px; border: 1px solid var(--color-primario);">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label" style="color: var(--color-primario); font-weight: bold;">
+                    Correo electrónico:
+                </label>
+                <input type="email" class="form-control" id="email" name="email" required
+                       style="border-radius: 10px; border: 1px solid var(--color-primario);">
+            </div>
+            <div class="mb-3">
+                <label for="telefono" class="form-label" style="color: var(--color-primario); font-weight: bold;">
+                    Teléfono:
+                </label>
+                <input type="tel" class="form-control" id="telefono" name="telefono"
+                       style="border-radius: 10px; border: 1px solid var(--color-primario);">
+            </div>
+            <div class="mb-3">
+                <label for="experiencia" class="form-label" style="color: var(--color-primario); font-weight: bold;">
+                    Experiencia laboral (breve descripción):
+                </label>
+                <textarea class="form-control" id="experiencia" name="experiencia" rows="3" required
+                          style="border-radius: 10px; border: 1px solid var(--color-primario);"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="archivo" class="form-label" style="color: var(--color-primario); font-weight: bold;">
+                    Sube tu CV actual (opcional):
+                </label>
+                <input type="file" class="form-control" id="archivo" name="archivo"
+                       style="border-radius: 10px; border: 1px solid var(--color-primario);">
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-enviar" style="background-color: var(--color-primario); color: var(--color-texto-claro); border-radius: 25px; padding: 10px 30px; font-weight: bold; transition: all 0.3s ease;">
+                    Enviar solicitud
+                </button>
+            </div>
+        </form>
+    
+        <!-- Mensaje de WhatsApp -->
+        <div class="text-center mt-4">
+            <p style="font-size: 0.9rem; color: var(--color-primario);">
+                Al finalizar el formulario, escríbenos a 
+                <a href="https://wa.me/+34634291534" target="_blank" style="color: var(--color-primario); text-decoration: underline;">
+                    WhatsApp
+                </a> 
+                para gestionar tu pago y la creación rápida y efectiva de tu currículum.
+            </p>
+        </div>
+    </div>
+    <a href="#servicios" class="btn btn-secondary mt-3">Volver a servicios</a>
+</div>
     
     <!-- Sección de Ofertas -->
 <section id="ofertas" class="container my-4"> <!-- Reducimos el margen -->
