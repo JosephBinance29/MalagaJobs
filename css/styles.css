@@ -406,11 +406,15 @@ footer a:hover {
 }
 
 @media (max-width: 767.98px) {
-    .formulario-cv .form-control {
-        font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+    .carousel-caption h1 {
+        font-size: 2rem; /* Tamaño más pequeño para el título */
     }
-    .formulario-cv .btn-enviar {
-        width: 100%; /* El botón ocupa todo el ancho */
-        padding: 10px; /* Espaciado interno */
+    .carousel-caption p {
+        font-size: 1rem; /* Tamaño más pequeño para el subtítulo */
+    }
+    .carousel-item video,
+    .carousel-item img {
+        height: 200px; /* Altura fija para el carrusel en móviles */
+        object-fit: cover; /* Ajusta la imagen sin distorsionarla */
     }
 }
