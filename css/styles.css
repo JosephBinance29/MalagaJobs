@@ -396,31 +396,78 @@ footer a:hover {
     margin-right: auto;
 }
 
+/* Estilos generales para la barra de navegación */
+.navbar {
+    background-color: transparent; /* Fondo transparente por defecto */
+    transition: background-color 0.3s ease;
+    padding: 10px 0;
+}
+
+/* Fondo sólido cuando el menú está abierto */
+.navbar.scrolled,
+.navbar.show {
+    background-color: var(--color-texto-claro); /* Fondo blanco */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Logo centrado */
+.navbar-brand.mx-auto {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Botón de hamburguesa */
+.navbar-toggler {
+    margin-left: 10px; /* Espacio a la izquierda del botón */
+    border: none; /* Sin borde */
+}
+
 /* Estilos para el menú en móviles */
 @media (max-width: 767.98px) {
-    .navbar-brand.mx-auto {
-        position: static;
-        transform: none;
+    .navbar {
+        background-color: transparent; /* Fondo transparente en móviles */
     }
 
-    .navbar-toggler {
-        margin-left: 10px;
+    .navbar.show {
+        background-color: var(--color-texto-claro); /* Fondo sólido cuando el menú está abierto */
     }
 
     .navbar-nav {
-        margin-top: 60px;
+        margin-top: 60px; /* Espacio entre el logo y el menú */
     }
 
     .nav-link.btn {
-        width: 100%;
-        margin: 5px 0;
-        text-align: center;
+        width: 100%; /* Los botones ocupan todo el ancho */
+        margin: 5px 0; /* Espacio entre botones */
+        text-align: center; /* Texto centrado */
     }
 
     .navbar-collapse {
-        background-color: var(--color-texto-claro);
-        padding: 10px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: var(--color-texto-claro); /* Fondo blanco para el menú colapsado */
+        padding: 10px; /* Espaciado interno */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    }
+}
+
+/* Estilos para el menú en escritorio */
+@media (min-width: 768px) {
+    .navbar {
+        background-color: var(--color-texto-claro); /* Fondo sólido en escritorio */
+    }
+
+    .navbar-brand.mx-auto {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .navbar-nav.me-auto {
+        margin-right: auto !important; /* Empuja el menú izquierdo a la izquierda */
+    }
+
+    .navbar-nav.ms-auto {
+        margin-left: auto !important; /* Empuja el menú derecho a la derecha */
     }
 }

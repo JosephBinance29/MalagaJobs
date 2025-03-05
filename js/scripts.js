@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Efecto hover en tarjetas de servicios
     const tarjetas = document.querySelectorAll(".servicio-card");
-
-    // Efecto hover en tarjetas
     tarjetas.forEach(tarjeta => {
         tarjeta.addEventListener("mouseenter", () => {
             tarjeta.style.transform = "scale(1.05)";
@@ -13,10 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
             tarjeta.style.transform = "scale(1)";
             tarjeta.style.boxShadow = "none";
         });
-    });
 
-    // Abrir detalles del servicio
-    tarjetas.forEach(tarjeta => {
+        // Abrir detalles del servicio al hacer clic
         tarjeta.addEventListener("click", function () {
             const servicio = this.getAttribute("data-servicio");
             const seccionDetalle = document.getElementById(`${servicio}-detalle`);
@@ -69,44 +66,62 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-});
 
-// Animación de la barra de navegación al hacer scroll
-window.addEventListener("scroll", () => {
-    const navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const formulario = document.querySelector("form[name='contact']");
-
-    formulario.addEventListener("submit", function (event) {
-        event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
-
-        // Oculta el formulario
-        formulario.classList.add("d-none");
-
-        // Muestra la sección de "Gracias"
-        document.getElementById("gracias").classList.remove("d-none");
-
-        // Envía el formulario a Netlify
-        fetch("/", {
-            method: "POST",
-            body: new FormData(formulario),
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log("Formulario enviado correctamente");
-            } else {
-                console.error("Error al enviar el formulario");
-            }
-        })
-        .catch(error => {
-            console.error("Error de red:", error);
-        });
+    // Animación de la barra de navegación al hacer scroll
+    window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
     });
+
+    // Manejo del formulario de contacto
+    const formulario = document.querySelector("form[name='contact']");
+    if (formulario) {
+        formulario.addEventListener("submit", function (event) {
+            event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
+
+            // Oculta el formulario
+            formulario.classList.add("d-none");
+
+            // Muestra la sección de "Gracias"
+            document.getElementById("gracias").classList.remove("d-none");
+
+            // Envía el formulario a Netlify
+            fetch("/", {
+                method: "POST",
+                body: new FormData(formulario),
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log("Formulario enviado correctamente");
+                } else {
+                    console.error("Error al enviar el formulario");
+                }
+            })
+            .catch(error => {
+                console.error("Error de red:", error);
+            });
+        });
+    }
+
+    // Manejo del menú en móviles
+    const navbar = document.querySelector(".navbar");
+    const navbarToggler = document.querySelector(".navbar-toggler");
+
+    if (navbarToggler) {
+        navbarToggler.addEventListener("click", function () {
+            navbar.classList.toggle("show"); // Alternar la clase "show" en el menú
+        });
+
+        // Cerrar el menú al hacer clic en un enlace
+        const navLinks = document.querySelectorAll(".nav-link");
+        navLinks.forEach(link => {
+            link.addEventListener("click", function () {
+                navbar.classList.remove("show"); // Cerrar el menú
+            });
+        });
+    }
 });
