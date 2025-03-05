@@ -18,66 +18,82 @@ body {
 }
 
 /* Barra de navegación */
+/* Estilos generales para la barra de navegación */
 .navbar {
-    background-color: var(--color-texto-claro);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: transparent; /* Fondo transparente por defecto */
+    transition: background-color 0.3s ease;
     padding: 10px 0;
 }
 
-.navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Fondo sólido cuando el menú está abierto */
+.navbar.scrolled,
+.navbar.show {
+    background-color: var(--color-texto-claro); /* Fondo blanco */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-/* Logo centrado */
-.navbar-brand.mx-auto {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+/* Botón de hamburguesa */
+.navbar-toggler {
+    border: none; /* Sin borde */
 }
 
-/* Botones del menú */
-.nav-link.btn {
-    font-weight: 500;
-    border-radius: 25px;
-    padding: 8px 20px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    font-size: 0.9rem;
+/* Estilos para el menú en móviles */
+@media (max-width: 767.98px) {
+    .navbar {
+        background-color: transparent; /* Fondo transparente en móviles */
+    }
+
+    .navbar.show {
+        background-color: var(--color-texto-claro); /* Fondo sólido cuando el menú está abierto */
+    }
+
+    .navbar-brand.d-lg-none {
+        margin-left: auto; /* Logo en el extremo derecho */
+    }
+
+    .navbar-toggler {
+        margin-right: auto; /* Botón de hamburguesa en el extremo izquierdo */
+    }
+
+    .navbar-collapse {
+        margin-top: 10px; /* Espacio entre el logo y el menú */
+    }
+
+    .navbar-nav {
+        width: 100%; /* El menú ocupa todo el ancho */
+    }
+
+    .nav-link.btn {
+        width: 100%; /* Los botones ocupan todo el ancho */
+        margin: 5px 0; /* Espacio entre botones */
+        text-align: center; /* Texto centrado */
+    }
+
+    .navbar-brand.d-lg-none {
+        display: none; /* Oculta el logo cuando el menú está abierto */
+    }
 }
 
-/* Efectos hover en botones */
-.nav-link.btn-outline-primary:hover {
-    background-color: #007bff;
-    color: white;
-    transform: translateY(-3px);
-}
+/* Estilos para el menú en escritorio */
+@media (min-width: 768px) {
+    .navbar {
+        background-color: var(--color-texto-claro); /* Fondo sólido en escritorio */
+    }
 
-.nav-link.btn-outline-success:hover {
-    background-color: #28a745;
-    color: white;
-    transform: translateY(-3px);
-}
+    .navbar-brand.d-none.d-lg-block {
+        position: absolute; /* Logo centrado */
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
-.nav-link.btn-outline-warning:hover {
-    background-color: #B3D8A8;
-    color: white;
-    transform: translateY(-3px);
-}
+    .navbar-nav.me-auto {
+        margin-right: auto !important; /* Empuja el menú izquierdo a la izquierda */
+    }
 
-.nav-link.btn-outline-danger:hover {
-    background-color: #A3D1C6;
-    color: white;
-    transform: translateY(-3px);
+    .navbar-nav.ms-auto {
+        margin-left: auto !important; /* Empuja el menú derecho a la derecha */
+    }
 }
-
-/* Animación de la barra de navegación al hacer scroll */
-.navbar.scrolled .nav-link.btn {
-    padding: 6px 18px;
-    font-size: 0.85rem;
-}
-
 /* Carrusel */
 .carousel-caption {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
@@ -394,80 +410,4 @@ footer a:hover {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
-}
-
-/* Estilos generales para la barra de navegación */
-.navbar {
-    background-color: transparent; /* Fondo transparente por defecto */
-    transition: background-color 0.3s ease;
-    padding: 10px 0;
-}
-
-/* Fondo sólido cuando el menú está abierto */
-.navbar.scrolled,
-.navbar.show {
-    background-color: var(--color-texto-claro); /* Fondo blanco */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
-
-/* Logo centrado */
-.navbar-brand.mx-auto {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Botón de hamburguesa */
-.navbar-toggler {
-    margin-left: 10px; /* Espacio a la izquierda del botón */
-    border: none; /* Sin borde */
-}
-
-/* Estilos para el menú en móviles */
-@media (max-width: 767.98px) {
-    .navbar {
-        background-color: transparent; /* Fondo transparente en móviles */
-    }
-
-    .navbar.show {
-        background-color: var(--color-texto-claro); /* Fondo sólido cuando el menú está abierto */
-    }
-
-    .navbar-nav {
-        margin-top: 60px; /* Espacio entre el logo y el menú */
-    }
-
-    .nav-link.btn {
-        width: 100%; /* Los botones ocupan todo el ancho */
-        margin: 5px 0; /* Espacio entre botones */
-        text-align: center; /* Texto centrado */
-    }
-
-    .navbar-collapse {
-        background-color: var(--color-texto-claro); /* Fondo blanco para el menú colapsado */
-        padding: 10px; /* Espaciado interno */
-        border-radius: 10px; /* Bordes redondeados */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    }
-}
-
-/* Estilos para el menú en escritorio */
-@media (min-width: 768px) {
-    .navbar {
-        background-color: var(--color-texto-claro); /* Fondo sólido en escritorio */
-    }
-
-    .navbar-brand.mx-auto {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .navbar-nav.me-auto {
-        margin-right: auto !important; /* Empuja el menú izquierdo a la izquierda */
-    }
-
-    .navbar-nav.ms-auto {
-        margin-left: auto !important; /* Empuja el menú derecho a la derecha */
-    }
 }
