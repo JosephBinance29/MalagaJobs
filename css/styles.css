@@ -1,11 +1,84 @@
-/* Estilos generales */
-body {
-    background-color: #f8f9fa; /* Gris claro suave */
-    font-family: 'Varela Round', sans-serif;
-    color: #333333;
+:root {
+    --color-primario: #00615f; /* Verde oscuro */
+    --color-secundario: #e8f5e9; /* Verde claro */
+    --color-fondo: #f8f9fa; /* Gris claro */
+    --color-texto: #333333; /* Texto principal */
+    --color-texto-claro: #ffffff; /* Texto claro */
+    --fuente-principal: 'Varela Round', sans-serif;
+    --fuente-titulos: 'Cooper Black', serif;
 }
 
-/* Estilos del carrusel */
+/* Estilos generales */
+body {
+    background-color: var(--color-fondo);
+    font-family: var(--fuente-principal);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: var(--color-texto-claro);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px 0;
+}
+
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo en el centro */
+.navbar-brand.mx-auto {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Estilos para los botones del menú */
+.nav-link.btn {
+    font-weight: 500;
+    border-radius: 25px; /* Bordes redondeados */
+    padding: 8px 20px; /* Espaciado interno */
+    transition: all 0.3s ease; /* Transición suave */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    font-size: 0.9rem; /* Tamaño de fuente */
+}
+
+/* Efectos de hover en los botones */
+.nav-link.btn-outline-primary:hover {
+    background-color: #007bff; /* Color de fondo al hacer hover */
+    color: white; /* Color de texto al hacer hover */
+    transform: translateY(-3px); /* Efecto de elevación */
+}
+
+.nav-link.btn-outline-success:hover {
+    background-color: #28a745;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.nav-link.btn-outline-warning:hover {
+    background-color: #B3D8A8;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.nav-link.btn-outline-danger:hover {
+    background-color: #A3D1C6;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Animación de la barra de navegación al hacer scroll */
+.navbar.scrolled .nav-link.btn {
+    padding: 6px 18px; /* Reducimos el padding al hacer scroll */
+    font-size: 0.85rem; /* Reducimos el tamaño de la fuente */
+}
+
+/* Carrusel */
 .carousel-caption {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
     border-radius: 10px;
@@ -14,70 +87,35 @@ body {
 }
 
 .carousel-caption h1 {
-    font-family: 'Cooper Black', serif;
+    font-family: var(--fuente-titulos);
     font-size: 6rem;
+    color: var(--color-texto-claro);
 }
 
 .carousel-caption p {
     font-size: 2rem;
-    color: #ffffff;
+    color: var(--color-texto-claro);
 }
 
 /* Ajuste del carrusel para móviles */
 @media (max-width: 767.98px) {
-    .carousel {
-        margin-top: 56px;
-    }
     .carousel-caption h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     .carousel-caption p {
         font-size: 1.2rem;
     }
 }
 
-/* Estilo de la barra de navegación */
-.navbar {
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand img {
-    height: auto;
-    max-width: 100%;
-}
-
-.nav-link {
-    color: #333333;
-    font-weight: 500;
-    margin: 0 10px;
-}
-
-.nav-link:hover {
-    color: #00615f;
-}
-
-.logo-whatsapp {
-    height: 50px;
-    width: auto;
-    border-radius: 5px;
-}
-
-/* Espaciado para el contenido */
-section {
-    padding-top: 60px;
-}
-
-/* Estilos para la tira interactiva */
+/* Tira interactiva */
 .tira-interactiva {
-    background-color: #00615f;
-    color: white;
+    background-color: var(--color-primario);
+    color: var(--color-texto-claro);
     padding: 10px;
     font-size: 1.5rem;
-    font-family: 'Varela Round', sans-serif;
     font-weight: 700;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 20px; /* Reducimos el margen */
     white-space: nowrap;
     overflow: hidden;
 }
@@ -85,7 +123,7 @@ section {
 .scroll-text {
     display: inline-block;
     padding-left: 100%;
-    animation: scroll 20s linear infinite; /* Aumentamos la duración de 10s a 20s */
+    animation: scroll 20s linear infinite;
 }
 
 @keyframes scroll {
@@ -93,113 +131,20 @@ section {
     100% { transform: translateX(-100%); }
 }
 
-/* Estilo de la sección de WhatsApp */
-.alert-success {
-    background-color: #00615f;
-    border-color: #00615f;
-    color: white;
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.alert-success h4 {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.alert-success .btn {
-    background-color: #00615f;
-    border-color: #00615f;
-    color: white;
-}
-
-.alert-success .btn:hover {
-    background-color: #004d4b;
-}
-
-/* Estilo del buscador */
-#buscador {
-    margin-top: 40px;
-    max-width: 300px;
-    width: 100%;
-    margin: 40px auto 0;
-    margin-bottom: 40px;
-}
-
-#buscador .input-group {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#buscador .form-control {
-    border-radius: 4px 0 0 4px;
-    border: 1px solid #ced4da;
-}
-
-#buscador .btn {
-    border-radius: 0 4px 4px 0;
-    background-color: #00615f;
-    border-color: #00615f;
-}
-
-#buscador .btn:hover {
-    background-color: #004d4b;
-}
-
-/* Estilo de las tarjetas de ofertas */
-#lista-ofertas .card {
-    background-color: #e8f5e9; /* Verde muy claro */
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#lista-ofertas .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#lista-ofertas .card-body {
-    padding: 25px;
-}
-
-#lista-ofertas .card-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #333333;
-}
-
-#lista-ofertas .card-text {
-    font-size: 1rem;
-    color: #666666;
-}
-
-#lista-ofertas .btn-outline-verde {
-    border-color: #00615f;
-    color: #00615f;
-}
-
-#lista-ofertas .btn-outline-verde:hover {
-    background-color: #00615f;
-    color: white;
-}
-
-/* Estilos para la sección de servicios */
+/* Sección de servicios */
 #servicios {
-    padding: 60px 0;
-    background-color: #00615f; /* Verde oscuro */
-    color: white;
+    padding: 40px 0; /* Reducimos el padding */
+    background-color: var(--color-primario);
+    color: var(--color-texto-claro);
 }
 
 #servicios .card {
-    background-color: #e8f5e9; /* Verde muy claro */
+    background-color: var(--color-secundario);
     border: none;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    color: #00615f;
-    text-decoration: none;
 }
 
 #servicios .card:hover {
@@ -207,66 +152,63 @@ section {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-#servicios .card-body {
-    padding: 30px;
-}
-
-#servicios .card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-/* Estilos para las secciones de detalles */
-.servicio-detalle {
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.servicio-detalle h2 {
-    color: #00615f;
-    margin-bottom: 20px;
-}
-
-.servicio-detalle img {
-    border-radius: 10px;
-    margin-bottom: 10px;
-    max-width: 100%;
-    height: auto;
-}
-
-/* Footer */
-footer {
-    background-color: #f8f9fa;
-    padding: 20px 0;
+/* Botón flotante de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: var(--color-texto-claro);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     text-align: center;
-    margin-top: 40px;
-}
-
-footer p {
-    margin: 0;
-    color: #333333;
-}
-
-footer a {
-    color: #333333;
-    margin: 0 10px;
+    font-size: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-footer a:hover {
-    color: #00615f;
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
 }
 
-.fade-in {
-    animation: fadeIn 1s ease-in-out;
+/* Estilos para la sección ¿Quiénes Somos? */
+#quienes-somos {
+    background-color: var(--color-fondo);
+    padding: 60px 0;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+#quienes-somos h2 {
+    color: var(--color-primario);
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#quienes-somos p {
+    color: var(--color-texto);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Estilos para el botón "Volver a servicios" */
+.btn-secondary {
+    background-color: #6c757d; /* Gris de Bootstrap */
+    border-color: #6c757d; /* Gris de Bootstrap */
+    color: white; /* Texto blanco */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Gris más oscuro al pasar el mouse */
+    border-color: #545b62; /* Gris más oscuro al pasar el mouse */
 }
 
 /* Estilos para el efecto de volteo */
@@ -304,13 +246,13 @@ footer a:hover {
 }
 
 .flip-card-front {
-    background-color: #e8f5e9; /* Verde muy claro */
-    color: #333333;
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
 }
 
 .flip-card-back {
-    background-color: #00615f; /* Verde oscuro */
-    color: white;
+    background-color: var(--color-primario);
+    color: var(--color-texto-claro);
     transform: rotateY(180deg); /* Gira la parte trasera 180 grados */
     display: flex;
     flex-direction: column;
@@ -329,59 +271,100 @@ footer a:hover {
     line-height: 1.5;
 }
 
-/* Estilos para la sección ¿Quiénes Somos? */
-#quienes-somos {
-    background-color: #f8f9fa; /* Fondo gris claro */
-    padding: 60px 0;
+/* Estilos para la sección de ofertas */
+#ofertas {
+    padding: 20px 0; /* Reducimos el padding */
 }
 
-#quienes-somos h2 {
-    color: #00615f; /* Verde oscuro para el título */
-    font-size: 2.5rem;
+#ofertas .card {
+    background-color: var(--color-secundario);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#ofertas .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#ofertas .card-title {
+    font-size: 1.25rem;
     font-weight: bold;
-    margin-bottom: 20px;
+    color: var(--color-texto);
 }
 
-#quienes-somos p {
-    color: #004d4b; /* Verde más oscuro para la descripción */
-    font-size: 1.1rem;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
+#ofertas .card-text {
+    font-size: 1rem;
+    color: var(--color-texto);
 }
 
-.btn-secondary {
-    background-color: #6c757d; /* Gris de Bootstrap */
-    border-color: #6c757d; /* Gris de Bootstrap */
-    color: white; /* Texto blanco */
+#ofertas .btn-outline-verde {
+    border-color: var(--color-primario);
+    color: var(--color-primario);
 }
 
-.btn-secondary:hover {
-    background-color: #5a6268; /* Gris más oscuro al pasar el mouse */
-    border-color: #545b62; /* Gris más oscuro al pasar el mouse */
+#ofertas .btn-outline-verde:hover {
+    background-color: var(--color-primario);
+    color: var(--color-texto-claro);
 }
 
-/* Estilos para el botón flotante de WhatsApp */
-.whatsapp-float {
-    position: fixed; /* Fija el botón en la pantalla */
-    bottom: 20px; /* Distancia desde la parte inferior */
-    right: 20px; /* Distancia desde la parte derecha */
-    background-color: #25d366; /* Verde de WhatsApp */
-    color: white; /* Color del ícono */
-    width: 60px; /* Ancho del botón */
-    height: 60px; /* Alto del botón */
-    border-radius: 50%; /* Forma circular */
-    text-align: center; /* Centra el ícono */
-    font-size: 30px; /* Tamaño del ícono */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+/* Footer */
+footer {
+    background-color: var(--color-fondo);
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
 }
 
-.whatsapp-float:hover {
-    background-color: #128c7e; /* Cambia el color al pasar el mouse */
+footer p {
+    margin: 0;
+    color: var(--color-texto);
+}
+
+footer a {
+    color: var(--color-texto);
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--color-primario);
+}
+
+/* Estilos para el logo de WhatsApp en la sección del canal */
+.alert-success img.logo-whatsapp {
+    height: 60px; /* Tamaño reducido */
+    width: auto; /* Mantiene la proporción */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-left: 10px; /* Espaciado a la izquierda */
+}
+
+/* Estilos para el buscador de empleos */
+#buscador {
+    margin-top: 20px; /* Reducimos el margen superior */
+    max-width: 50%; /* Ocupa solo la mitad del ancho */
+    width: 100%;
+    margin: 20px auto; /* Centramos y reducimos el margen */
+    margin-bottom: 20px; /* Reducimos el margen inferior */
+}
+
+#buscador .input-group {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#buscador .form-control {
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #ced4da;
+}
+
+#buscador .btn {
+    border-radius: 0 4px 4px 0;
+    background-color: #00615f;
+    border-color: #00615f;
+}
+
+#buscador .btn:hover {
+    background-color: #004d4b;
 }

@@ -35,15 +35,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     return;
                 }
 
-                data.results.forEach((empleo, index) => {
+                data.results.forEach(empleo => {
                     const card = `
                         <div class="col-md-6 mb-4">
                             <div class="card h-100">
                                 <div class="card-body">
                                     <h5 class="card-title">${empleo.title}</h5>
                                     <p class="card-text">
-                                        <strong>Empresa:</strong> ${empleo.company.display_name}<br>
-                                        <strong>Ubicación:</strong> ${empleo.location.display_name}<br>
+                                        <strong>Empresa:</strong> ${empleo.company?.display_name || "No especificado"}<br>
+                                        <strong>Ubicación:</strong> ${empleo.location?.display_name || "No especificado"}<br>
                                         <strong>Salario:</strong> ${empleo.salary_min ? `€${empleo.salary_min}` : 'No especificado'}<br>
                                         <a href="${empleo.redirect_url}" target="_blank" class="btn btn-outline-verde">Ver más</a>
                                     </p>
@@ -111,34 +111,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-});
-
-    // Código de servicios
-const tarjetas = document.querySelectorAll(".servicio-card");
-
-// Abrir detalles del servicio
-tarjetas.forEach(tarjeta => {
-    tarjeta.addEventListener("click", function () {
-        const servicio = this.getAttribute("data-servicio");
-        const seccionDetalle = document.getElementById(`${servicio}-detalle`);
-
-        // Ocultar todas las secciones de detalles
-        document.querySelectorAll(".servicio-detalle").forEach(seccion => {
-            seccion.classList.add("d-none");
-        });
-
-        // Mostrar la sección de detalles correspondiente
-        if (seccionDetalle) {
-            seccionDetalle.classList.remove("d-none");
-
-            // Ajustar el desplazamiento para que el título sea visible
-            const offset = 100; // Ajusta este valor según la altura de tu barra de navegación
-            const seccionPosicion = seccionDetalle.offsetTop - offset;
-
-            window.scrollTo({
-                top: seccionPosicion,
-                behavior: "smooth"
-            });
-        }
-    });
 });
