@@ -17,7 +17,7 @@ body {
     padding: 0;
 }
 
-/* Estilos para la barra de navegación */
+/* Barra de navegación */
 .navbar {
     background-color: var(--color-texto-claro);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -25,38 +25,33 @@ body {
     padding: 10px 0;
 }
 
-/* Añade un margen superior al carrusel para que no quede tapado por el menú */
-header#inicio {
-    padding-top: 70px; /* Ajusta este valor según la altura de tu menú */
-}
-
 .navbar.scrolled {
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Logo en el centro */
+/* Logo centrado */
 .navbar-brand.mx-auto {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 
-/* Estilos para los botones del menú */
+/* Botones del menú */
 .nav-link.btn {
     font-weight: 500;
-    border-radius: 25px; /* Bordes redondeados */
-    padding: 8px 20px; /* Espaciado interno */
-    transition: all 0.3s ease; /* Transición suave */
-    text-transform: uppercase; /* Texto en mayúsculas */
-    font-size: 0.9rem; /* Tamaño de fuente */
+    border-radius: 25px;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
-/* Efectos de hover en los botones */
+/* Efectos hover en botones */
 .nav-link.btn-outline-primary:hover {
-    background-color: #007bff; /* Color de fondo al hacer hover */
-    color: white; /* Color de texto al hacer hover */
-    transform: translateY(-3px); /* Efecto de elevación */
+    background-color: #007bff;
+    color: white;
+    transform: translateY(-3px);
 }
 
 .nav-link.btn-outline-success:hover {
@@ -79,8 +74,8 @@ header#inicio {
 
 /* Animación de la barra de navegación al hacer scroll */
 .navbar.scrolled .nav-link.btn {
-    padding: 6px 18px; /* Reducimos el padding al hacer scroll */
-    font-size: 0.85rem; /* Reducimos el tamaño de la fuente */
+    padding: 6px 18px;
+    font-size: 0.85rem;
 }
 
 /* Carrusel */
@@ -102,13 +97,18 @@ header#inicio {
     color: var(--color-texto-claro);
 }
 
-/* Ajuste del carrusel para móviles */
+/* Ajustes del carrusel para móviles */
 @media (max-width: 767.98px) {
     .carousel-caption h1 {
         font-size: 2.5rem;
     }
     .carousel-caption p {
         font-size: 1.2rem;
+    }
+    .carousel-item video,
+    .carousel-item img {
+        height: 200px;
+        object-fit: cover;
     }
 }
 
@@ -120,7 +120,7 @@ header#inicio {
     font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
-    margin-top: 20px; /* Reducimos el margen */
+    margin-top: 20px;
     white-space: nowrap;
     overflow: hidden;
 }
@@ -138,7 +138,7 @@ header#inicio {
 
 /* Sección de servicios */
 #servicios {
-    padding: 40px 0; /* Reducimos el padding */
+    padding: 40px 0;
     background-color: var(--color-primario);
     color: var(--color-texto-claro);
 }
@@ -183,7 +183,7 @@ header#inicio {
     transform: scale(1.1);
 }
 
-/* Estilos para la sección ¿Quiénes Somos? */
+/* Sección ¿Quiénes Somos? */
 #quienes-somos {
     background-color: var(--color-fondo);
     padding: 60px 0;
@@ -204,24 +204,24 @@ header#inicio {
     margin: 0 auto;
 }
 
-/* Estilos para el botón "Volver a servicios" */
+/* Botón "Volver a servicios" */
 .btn-secondary {
-    background-color: #6c757d; /* Gris de Bootstrap */
-    border-color: #6c757d; /* Gris de Bootstrap */
-    color: white; /* Texto blanco */
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
 }
 
 .btn-secondary:hover {
-    background-color: #5a6268; /* Gris más oscuro al pasar el mouse */
-    border-color: #545b62; /* Gris más oscuro al pasar el mouse */
+    background-color: #5a6268;
+    border-color: #545b62;
 }
 
-/* Estilos para el efecto de volteo */
+/* Efecto de volteo */
 .flip-card {
     background-color: transparent;
-    perspective: 1000px; /* Efecto de perspectiva 3D */
+    perspective: 1000px;
     width: 100%;
-    height: 300px; /* Ajusta la altura según el tamaño de tus fotos */
+    height: 300px;
     margin-bottom: 20px;
 }
 
@@ -237,7 +237,7 @@ header#inicio {
 }
 
 .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg); /* Voltea la tarjeta al pasar el mouse */
+    transform: rotateY(180deg);
 }
 
 .flip-card-front,
@@ -245,7 +245,7 @@ header#inicio {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Oculta la parte trasera de la tarjeta */
+    backface-visibility: hidden;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -258,7 +258,7 @@ header#inicio {
 .flip-card-back {
     background-color: var(--color-primario);
     color: var(--color-texto-claro);
-    transform: rotateY(180deg); /* Gira la parte trasera 180 grados */
+    transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -276,9 +276,9 @@ header#inicio {
     line-height: 1.5;
 }
 
-/* Estilos para la sección de ofertas */
+/* Sección de ofertas */
 #ofertas {
-    padding: 20px 0; /* Reducimos el padding */
+    padding: 20px 0;
 }
 
 #ofertas .card {
@@ -340,19 +340,19 @@ footer a:hover {
 
 /* Estilos para el logo de WhatsApp en la sección del canal */
 .alert-success img.logo-whatsapp {
-    height: 60px; /* Tamaño reducido */
-    width: auto; /* Mantiene la proporción */
-    border-radius: 5px; /* Bordes redondeados */
-    margin-left: 10px; /* Espaciado a la izquierda */
+    height: 60px;
+    width: auto;
+    border-radius: 5px;
+    margin-left: 10px;
 }
 
-/* Estilos para el buscador de empleos */
+/* Buscador de empleos */
 #buscador {
-    margin-top: 20px; /* Reducimos el margen superior */
-    max-width: 50%; /* Ocupa solo la mitad del ancho */
+    margin-top: 20px;
+    max-width: 50%;
     width: 100%;
-    margin: 20px auto; /* Centramos y reducimos el margen */
-    margin-bottom: 20px; /* Reducimos el margen inferior */
+    margin: 20px auto;
+    margin-bottom: 20px;
 }
 
 #buscador .input-group {
@@ -374,67 +374,53 @@ footer a:hover {
     background-color: #004d4b;
 }
 
-/* Estilos para la sección de detalles del servicio */
+/* Sección de detalles del servicio */
 .servicio-detalle {
-    padding: 40px 20px; /* Añadimos un padding para separar el contenido de los bordes */
-    margin: 0 auto; /* Centramos la sección */
-    max-width: 1200px; /* Limitamos el ancho máximo */
+    padding: 40px 20px;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 .servicio-detalle h2 {
-    margin-bottom: 20px; /* Separamos el título del contenido */
-    text-align: center; /* Centramos el título */
-    color: var(--color-primario); /* Color del título */
-    font-family: var(--fuente-titulos); /* Fuente del título */
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--color-primario);
+    font-family: var(--fuente-titulos);
 }
 
 .servicio-detalle .btn-secondary {
-    margin-top: 20px; /* Separamos el botón del contenido */
-    display: block; /* Hacemos que el botón ocupe toda la línea */
-    width: fit-content; /* Ajustamos el ancho al contenido */
-    margin-left: auto; /* Centramos el botón */
+    margin-top: 20px;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
     margin-right: auto;
-}
-
-@media (max-width: 767.98px) {
-    .carousel-caption h1 {
-        font-size: 2rem; /* Tamaño más pequeño para el título */
-    }
-    .carousel-caption p {
-        font-size: 1rem; /* Tamaño más pequeño para el subtítulo */
-    }
-    .carousel-item video,
-    .carousel-item img {
-        height: 200px; /* Altura fija para el carrusel en móviles */
-        object-fit: cover; /* Ajusta la imagen sin distorsionarla */
-    }
 }
 
 /* Estilos para el menú en móviles */
 @media (max-width: 767.98px) {
     .navbar-brand.mx-auto {
-        position: static; /* El logo no se posiciona de manera absoluta */
+        position: static;
         transform: none;
     }
 
     .navbar-toggler {
-        margin-left: 10px; /* Espacio a la izquierda del botón de hamburguesa */
+        margin-left: 10px;
     }
 
     .navbar-nav {
-        margin-top: 10px; /* Espacio entre el logo y el menú */
+        margin-top: 60px;
     }
 
     .nav-link.btn {
-        width: 100%; /* Los botones ocupan todo el ancho */
-        margin: 5px 0; /* Espacio entre botones */
-        text-align: center; /* Texto centrado */
+        width: 100%;
+        margin: 5px 0;
+        text-align: center;
     }
 
     .navbar-collapse {
-        background-color: var(--color-texto-claro); /* Fondo blanco para el menú colapsado */
-        padding: 10px; /* Espaciado interno */
-        border-radius: 10px; /* Bordes redondeados */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        background-color: var(--color-texto-claro);
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 }
