@@ -322,6 +322,7 @@
             <img src="img/cv3.jpg" alt="Fotmato de Curriculo europeo" class="img-fluid">
         </div>
     </div>
+    <!--Formulario-->
     <div class="container my-4">
         <h3 class="text-center mb-4" style="color: var(--color-primario); font-family: var(--fuente-titulos);">
             Solicita tu CV personalizado
@@ -329,19 +330,23 @@
         <p class="text-center mb-4" style="font-size: 1.2rem; color: var(--color-primario);">
             Precio: <strong>0,99€</strong>
         </p>
-        <form name="solicitud-cv" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="formulario-cv">
-            <!-- Campo oculto para Netlify -->
-            <input type="hidden" name="form-name" value="solicitud-cv">
+    
+        <!-- Formulario -->
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="formulario-cv">
+            <!-- Campo oculto para el nombre del formulario -->
+            <input type="hidden" name="form-name" value="contact">
+    
+            <!-- Campo honeypot para evitar spam -->
             <p class="d-none">
                 <label>No llenes este campo si eres humano: <input name="bot-field"></label>
             </p>
     
             <!-- Campos del formulario -->
             <div class="mb-3">
-                <label for="nombre" class="form-label" style="color: var(--color-primario); font-weight: bold;">
+                <label for="name" class="form-label" style="color: var(--color-primario); font-weight: bold;">
                     Nombre completo:
                 </label>
-                <input type="text" class="form-control" id="nombre" name="nombre" required
+                <input type="text" class="form-control" id="name" name="name" required
                        style="border-radius: 10px; border: 1px solid var(--color-primario);">
             </div>
             <div class="mb-3">
@@ -378,6 +383,17 @@
                 </button>
             </div>
         </form>
+    
+        <!-- Sección de "Gracias" (oculta inicialmente) -->
+        <section id="gracias" class="d-none text-center mt-4">
+            <h2 style="color: var(--color-primario); font-family: var(--fuente-titulos);">
+                ¡Gracias por tu solicitud!
+            </h2>
+            <p style="font-size: 1.1rem; color: var(--color-primario);">
+                Hemos recibido tu información. Nos pondremos en contacto contigo pronto.
+            </p>
+            <a href="#servicios" class="btn btn-primary">Volver a servicios</a>
+        </section>
     
         <!-- Mensaje de WhatsApp -->
         <div class="text-center mt-4">

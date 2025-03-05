@@ -80,3 +80,33 @@ window.addEventListener("scroll", () => {
         navbar.classList.remove("scrolled");
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const formulario = document.querySelector("form[name='contact']");
+
+    formulario.addEventListener("submit", function (event) {
+        event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
+
+        // Oculta el formulario
+        formulario.classList.add("d-none");
+
+        // Muestra la sección de "Gracias"
+        document.getElementById("gracias").classList.remove("d-none");
+
+        // Envía el formulario a Netlify
+        fetch("/", {
+            method: "POST",
+            body: new FormData(formulario),
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log("Formulario enviado correctamente");
+            } else {
+                console.error("Error al enviar el formulario");
+            }
+        })
+        .catch(error => {
+            console.error("Error de red:", error);
+        });
+    });
+});
