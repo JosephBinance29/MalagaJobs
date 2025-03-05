@@ -31,8 +31,18 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-/* Botón de hamburguesa */
+/* Logo en la esquina superior izquierda */
+.navbar-brand {
+    position: fixed;
+    left: 20px;
+    top: 10px;
+}
+
+/* Botón de hamburguesa en la esquina superior derecha */
 .navbar-toggler {
+    position: fixed;
+    right: 20px;
+    top: 10px;
     border: none; /* Sin borde */
 }
 
@@ -46,21 +56,15 @@ body {
         background-color: var(--color-texto-claro); /* Fondo sólido cuando el menú está abierto */
     }
 
-    .navbar-brand.mx-auto {
-        position: absolute; /* Logo centrado */
-        left: 50%;
-        transform: translateX(-50%);
-        top: 10px; /* Espacio desde la parte superior */
-    }
-
-    .navbar-toggler {
-        position: absolute; /* Botón de hamburguesa en el extremo izquierdo */
-        left: 20px;
-        top: 10px;
-    }
-
     .navbar-collapse {
-        margin-top: 80px; /* Espacio entre el logo y el menú */
+        position: fixed;
+        top: 60px; /* Espacio desde la parte superior */
+        right: 20px;
+        background-color: var(--color-texto-claro); /* Fondo blanco para el menú colapsado */
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        width: 200px; /* Ancho del menú colapsado */
     }
 
     .navbar-nav {
@@ -80,10 +84,13 @@ body {
         background-color: var(--color-texto-claro); /* Fondo sólido en escritorio */
     }
 
-    .navbar-brand.mx-auto {
-        position: absolute; /* Logo centrado */
-        left: 50%;
-        transform: translateX(-50%);
+    .navbar-brand {
+        position: static; /* Logo en su posición normal */
+        margin-right: auto; /* Logo a la izquierda */
+    }
+
+    .navbar-toggler {
+        display: none; /* Oculta el botón de hamburguesa en escritorio */
     }
 
     .navbar-nav.me-auto {
