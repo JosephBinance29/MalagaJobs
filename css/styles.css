@@ -405,16 +405,32 @@ footer a:hover {
     }
 }
 
+/* Estilos para el menú en móviles */
 @media (max-width: 767.98px) {
-    .carousel-caption h1 {
-        font-size: 2rem; /* Tamaño más pequeño para el título */
+    .navbar-brand.mx-auto {
+        position: absolute; /* Posiciona el logo en el centro */
+        left: 50%;
+        transform: translateX(-50%);
     }
-    .carousel-caption p {
-        font-size: 1rem; /* Tamaño más pequeño para el subtítulo */
+
+    .navbar-toggler {
+        margin-left: 10px; /* Espacio a la izquierda del botón de hamburguesa */
     }
-    .carousel-item video,
-    .carousel-item img {
-        height: 200px; /* Altura fija para el carrusel en móviles */
-        object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+
+    .navbar-nav {
+        margin-top: 10px; /* Espacio entre el logo y el menú */
+    }
+
+    .nav-link.btn {
+        width: 100%; /* Los botones ocupan todo el ancho */
+        margin: 5px 0; /* Espacio entre botones */
+        text-align: center; /* Texto centrado */
+    }
+
+    .navbar-collapse {
+        background-color: var(--color-texto-claro); /* Fondo blanco para el menú colapsado */
+        padding: 10px; /* Espaciado interno */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
     }
 }

@@ -21,34 +21,39 @@
 </head>
 <body>
     <!-- Barra de navegación -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container-fluid">
-        <!-- Menú izquierdo -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link btn btn-outline-primary mx-2" href="#inicio">Inicio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link btn btn-outline-success mx-2" href="#ofertas">Ofertas de Empleo</a>
-            </li>
-        </ul>
-
-        <!-- Logo en el centro -->
-        <a class="navbar-brand mx-auto" href="#">
-            <img src="img/logo.png" alt="Logo HolaJob - Portal de Empleo en España" width="75">
-        </a>
-
-        <!-- Menú derecho -->
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link btn btn-outline-warning mx-2" href="#servicios">Servicios</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link btn btn-outline-danger mx-2" href="#whatsapp">Canal de WhatsApp</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <!-- Botón de hamburguesa para móviles -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Logo -->
+            <a class="navbar-brand mx-auto" href="#">
+                <img src="img/logo.png" alt="Logo HolaJob - Portal de Empleo en España" width="75">
+            </a>
+    
+            <!-- Menú colapsable -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary mx-2" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-success mx-2" href="#ofertas">Ofertas</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-warning mx-2" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-danger mx-2" href="#whatsapp">WhatsApp</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <!-- Encabezado con Carrusel -->
     <header id="inicio" class="fade-in">
