@@ -17,7 +17,6 @@ body {
     padding: 0;
 }
 
-/* Barra de navegación */
 /* Estilos generales para la barra de navegación */
 .navbar {
     background-color: transparent; /* Fondo transparente por defecto */
@@ -47,8 +46,10 @@ body {
         background-color: var(--color-texto-claro); /* Fondo sólido cuando el menú está abierto */
     }
 
-    .navbar-brand.d-lg-none {
-        margin-left: auto; /* Logo en el extremo derecho */
+    .navbar-brand {
+        position: fixed; /* Logo fijo en la pantalla */
+        right: 20px; /* Logo en el extremo derecho */
+        top: 10px; /* Espacio desde la parte superior */
     }
 
     .navbar-toggler {
@@ -56,7 +57,7 @@ body {
     }
 
     .navbar-collapse {
-        margin-top: 10px; /* Espacio entre el logo y el menú */
+        margin-top: 60px; /* Espacio entre el logo y el menú */
     }
 
     .navbar-nav {
@@ -69,7 +70,7 @@ body {
         text-align: center; /* Texto centrado */
     }
 
-    .navbar-brand.d-lg-none {
+    .navbar.show .navbar-brand {
         display: none; /* Oculta el logo cuando el menú está abierto */
     }
 }
@@ -80,7 +81,7 @@ body {
         background-color: var(--color-texto-claro); /* Fondo sólido en escritorio */
     }
 
-    .navbar-brand.d-none.d-lg-block {
+    .navbar-brand {
         position: absolute; /* Logo centrado */
         left: 50%;
         transform: translateX(-50%);
@@ -94,6 +95,7 @@ body {
         margin-left: auto !important; /* Empuja el menú derecho a la derecha */
     }
 }
+
 /* Carrusel */
 .carousel-caption {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
