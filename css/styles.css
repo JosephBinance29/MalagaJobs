@@ -31,21 +31,6 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-/* Logo en la esquina superior izquierda */
-.navbar-brand {
-    position: fixed;
-    left: 20px;
-    top: 10px;
-}
-
-/* Botón de hamburguesa en la esquina superior derecha */
-.navbar-toggler {
-    position: fixed;
-    right: 20px;
-    top: 10px;
-    border: none; /* Sin borde */
-}
-
 /* Estilos para el menú en móviles */
 @media (max-width: 767.98px) {
     .navbar {
@@ -56,6 +41,22 @@ body {
         background-color: var(--color-texto-claro); /* Fondo sólido cuando el menú está abierto */
     }
 
+    /* Logo en la esquina superior izquierda */
+    .navbar-brand {
+        position: fixed;
+        left: 20px;
+        top: 10px;
+    }
+
+    /* Botón de hamburguesa en la esquina superior derecha */
+    .navbar-toggler {
+        position: fixed;
+        right: 20px;
+        top: 10px;
+        border: none; /* Sin borde */
+    }
+
+    /* Menú colapsado */
     .navbar-collapse {
         position: fixed;
         top: 60px; /* Espacio desde la parte superior */
@@ -84,19 +85,24 @@ body {
         background-color: var(--color-texto-claro); /* Fondo sólido en escritorio */
     }
 
+    /* Logo centrado */
     .navbar-brand {
-        position: static; /* Logo en su posición normal */
-        margin-right: auto; /* Logo a la izquierda */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
+    /* Botón de hamburguesa oculto en escritorio */
     .navbar-toggler {
-        display: none; /* Oculta el botón de hamburguesa en escritorio */
+        display: none;
     }
 
+    /* Menú izquierdo */
     .navbar-nav.me-auto {
         margin-right: auto !important; /* Empuja el menú izquierdo a la izquierda */
     }
 
+    /* Menú derecho */
     .navbar-nav.ms-auto {
         margin-left: auto !important; /* Empuja el menú derecho a la derecha */
     }
