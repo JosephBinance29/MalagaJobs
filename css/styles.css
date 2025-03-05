@@ -25,6 +25,11 @@ body {
     padding: 10px 0;
 }
 
+/* Añade un margen superior al carrusel para que no quede tapado por el menú */
+header#inicio {
+    padding-top: 70px; /* Ajusta este valor según la altura de tu menú */
+}
+
 .navbar.scrolled {
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -408,9 +413,8 @@ footer a:hover {
 /* Estilos para el menú en móviles */
 @media (max-width: 767.98px) {
     .navbar-brand.mx-auto {
-        position: absolute; /* Posiciona el logo en el centro */
-        left: 50%;
-        transform: translateX(-50%);
+        position: static; /* El logo no se posiciona de manera absoluta */
+        transform: none;
     }
 
     .navbar-toggler {
