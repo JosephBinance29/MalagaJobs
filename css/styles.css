@@ -46,18 +46,21 @@ body {
         background-color: var(--color-texto-claro); /* Fondo sólido cuando el menú está abierto */
     }
 
-    .navbar-brand {
-        position: fixed; /* Logo fijo en la pantalla */
-        right: 20px; /* Logo en el extremo derecho */
+    .navbar-brand.mx-auto {
+        position: absolute; /* Logo centrado */
+        left: 50%;
+        transform: translateX(-50%);
         top: 10px; /* Espacio desde la parte superior */
     }
 
     .navbar-toggler {
-        margin-right: auto; /* Botón de hamburguesa en el extremo izquierdo */
+        position: absolute; /* Botón de hamburguesa en el extremo izquierdo */
+        left: 20px;
+        top: 10px;
     }
 
     .navbar-collapse {
-        margin-top: 60px; /* Espacio entre el logo y el menú */
+        margin-top: 80px; /* Espacio entre el logo y el menú */
     }
 
     .navbar-nav {
@@ -69,10 +72,6 @@ body {
         margin: 5px 0; /* Espacio entre botones */
         text-align: center; /* Texto centrado */
     }
-
-    .navbar.show .navbar-brand {
-        display: none; /* Oculta el logo cuando el menú está abierto */
-    }
 }
 
 /* Estilos para el menú en escritorio */
@@ -81,7 +80,7 @@ body {
         background-color: var(--color-texto-claro); /* Fondo sólido en escritorio */
     }
 
-    .navbar-brand {
+    .navbar-brand.mx-auto {
         position: absolute; /* Logo centrado */
         left: 50%;
         transform: translateX(-50%);

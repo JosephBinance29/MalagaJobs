@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Manejo moviles
+    // Manejo del menú en móviles
     const navbar = document.querySelector(".navbar");
     const navbarToggler = document.querySelector(".navbar-toggler");
 
