@@ -15,7 +15,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Abrir detalles del servicio al hacer clic
         tarjeta.addEventListener("click", function () {
+            event.stopPropagation(); // Evita que el clic se propague
             const servicio = this.getAttribute("data-servicio");
+            // Enviar evento al dataLayer de GTM
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: "click_servicio",
+                servicio: servicio
+            });
             const seccionDetalle = document.getElementById(`${servicio}-detalle`);
 
             // Ocultar todas las secciones de detalles
