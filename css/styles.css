@@ -376,7 +376,7 @@ footer a:hover {
     margin-left: 10px;
 }
 
-/* Buscador de empleos */
+/* Estilos para el buscador de empleos */
 #buscador {
     margin-top: 20px;
     max-width: 50%;
@@ -387,21 +387,54 @@ footer a:hover {
 
 #buscador .input-group {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px; /* Espacio entre los campos */
 }
 
 #buscador .form-control {
     border-radius: 4px 0 0 4px;
     border: 1px solid #ced4da;
+    height: 40px; /* Altura fija para ambos campos */
+    font-size: 1rem; /* Tamaño de fuente */
 }
 
 #buscador .btn {
     border-radius: 0 4px 4px 0;
     background-color: #00615f;
     border-color: #00615f;
+    height: 40px; /* Altura fija para el botón */
+    font-size: 1rem; /* Tamaño de fuente */
 }
 
 #buscador .btn:hover {
     background-color: #004d4b;
+}
+
+/* Estilos específicos para el select de categoría */
+#categoria {
+    appearance: none; /* Elimina el estilo por defecto del select */
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    color: var(--color-texto);
+    cursor: pointer;
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+#categoria:focus {
+    border-color: #00615f;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 97, 95, 0.2);
+}
+
+/* Estilos para las etiquetas */
+#buscador label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-primario);
+    font-size: 1rem;
 }
 
 /* Sección de detalles del servicio */
